@@ -1,12 +1,12 @@
-const app = require('express').express();
+const app = require('express')();
 require('dotenv').config();
 const request = require('request');
 
 const PORT = 5000;
 
-const spotifyClientID = process.env.SPORIFTY_CLIENT_ID;
-const spotifyClientSecret = process.env.SPORIFTY_CLIENT_SECRET;
-global.accessToken = '';
+const spotify_client_id = process.env.SPOTIFY_CLIENT_ID;
+const spotifyClientSecret = process.env.SPOTIFY_CLIENT_SECRET;
+let access_token = '';
 
 //used for the state value, increased security
 function genRandomString(length) {
@@ -26,7 +26,7 @@ app.get('/auth/login', (req, res) => {
 
     const auth_query_parameters = new URLSearchParams({
         response_type: 'code',
-        client_id: spotifyClientID,
+        client_id: spotify_client_id,
         scope: scope,
         redirect_uri: 'http://localhost:3000/auth/callback',
         state: state,
@@ -53,7 +53,7 @@ app.get('/auth/callback', (req, res) => {
             Authorization:
                 'Basic ' +
                 Buffer.from(
-                    spotifyClientID + ':' + spotifyClientSecret
+                    spotify_client_id + ':' + spotifyClientSecret
                 ).toString('base64'),
             'Content-Type': 'application/x-www-form-urlencoded',
         },
@@ -62,7 +62,7 @@ app.get('/auth/callback', (req, res) => {
 
     request.post(authOptions, function (error, response, body) {
         if (!error && response.statusCode === 200) {
-            const accessToken = body.accessToken;
+            access_token = body.access_token;
             res.redirect('/');
         }
     });
@@ -70,7 +70,7 @@ app.get('/auth/callback', (req, res) => {
 
 app.get('/auth/token', (req, res) => {
     res.json({
-        accessToken: accessToken,
+        access_token: access_token,
     });
 });
 
