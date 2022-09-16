@@ -1,14 +1,14 @@
 import './App.css';
 import Header from './Header';
 import Game from './game/Game';
-import Footer from './Footer';
+import SpotPlayer from './SpotPlayer';
 
 function App() {
     return (
         <div className="App">
             <Header />
             <Game />
-            <Footer />
+            <SpotPlayer />
         </div>
     );
 }
