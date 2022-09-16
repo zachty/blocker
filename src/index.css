@@ -26,6 +26,29 @@ header {
     border: 5px black solid;
 }
 
+#player {
+    box-sizing: border-box;
+    height: 8vh;
+    width: 8vh;
+    background-color: black;
+    position: absolute;
+
+    z-index: 4;
+}
+
+.row {
+    height: 10vh;
+}
+.row.water {
+    background-color: blue;
+}
+.row.grass {
+    background-color: greenyellow;
+}
+.row.street {
+    background-color: darkgray;
+}
+
 #spotify-player {
     height: 9.9vh;
     background-color: gray;
