@@ -9,12 +9,12 @@ function createAndMove(freq, obstacle, parent) {
     // console.log('car');
     setInterval(() => {
         //this c-l triggers only after saving and clicking somewhere else.....what?
-        console.log('wut');
         //rest of this doesnt trigger
         const obst = document.createElement('div');
         obst.className = obstacle;
-        obst.style = { left: '300vh' };
         parent.appendChild(obst);
+        obst.style = 'left: -11vh';
+        obst.style = 'left: 350vh';
     }, freq);
 }
 
@@ -26,7 +26,7 @@ export default function Game() {
 
     if (streets)
         streets.forEach(street => {
-            createAndMove(3000, 'car', street);
+            createAndMove(1000, 'car', street);
         });
 
     //Player movement
@@ -71,20 +71,20 @@ export default function Game() {
             <div id="player" style={position}></div>
             <div className="row grass"></div>
             <div className="row water">
-                <div className="log"></div>
+                {/* <div className="log"></div> test test test */}
             </div>
             <div className="row water">
-                <div className="log"></div>
+                {/* <div className="log"></div> test test test */}
             </div>
             <div className="row grass"></div>
             <div className="row street">
-                <div className="car"></div>
+                {/* <div className="car"></div> test test test */}
             </div>
             <div className="row street">
-                <div className="bus"></div>
+                {/* <div className="car"></div> test test test */}
             </div>
             <div className="row street">
-                <div className="car"></div>
+                {/* <div className="car"></div> test test test */}
             </div>
             <div className="row grass"></div>
         </div>
