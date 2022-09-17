@@ -32,7 +32,6 @@ header {
     width: 8vh;
     background-color: black;
     position: absolute;
-
     z-index: 4;
 }
 
@@ -47,6 +46,32 @@ header {
 }
 .row.street {
     background-color: darkgray;
+}
+
+.car {
+    background-color: red;
+    height: 10vh;
+    width: 10vh;
+    position: relative;
+    left: -11vh;
+    transition: left 10s linear;
+}
+
+.bus {
+    background-color: navy;
+    height: 10vh;
+    width: 20vh;
+    position: relative;
+    left: -21vh;
+    transition: left 10s linear;
+}
+.log {
+    background-color: brown;
+    height: 10vh;
+    width: 30vh;
+    position: relative;
+    left: -31vh;
+    transition: left 10s linear;
 }
 
 #spotify-player {
